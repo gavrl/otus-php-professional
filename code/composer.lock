@@ -1,0 +1,52 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "fb272abc1e873dec69273cb753cc7687",
+    "packages": [
+        {
+            "name": "gavrl/otus-sum-package",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gavrl/otus-sum-package.git",
+                "reference": "25ff18695282f501aa99cacf34b14295418abe36"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gavrl/otus-sum-package/zipball/25ff18695282f501aa99cacf34b14295418abe36",
+                "reference": "25ff18695282f501aa99cacf34b14295418abe36",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Gavrl\\OtusSumPackage\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "SergeyGavr",
+                    "email": "sergeygavr.94@yandex.ru"
+                }
+            ],
+            "support": {
+                "issues": "https://github.com/gavrl/otus-sum-package/issues",
+                "source": "https://github.com/gavrl/otus-sum-package/tree/v1.0.1"
+            },
+            "time": "2022-08-16T19:43:23+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}
