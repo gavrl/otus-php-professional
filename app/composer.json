@@ -1,0 +1,16 @@
+{
+    "name": "gavrl/socket-chat",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Gavrl\\SocketChat\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "SergeyGavr",
+            "email": "sergeygavr.94@yandex.ru"
+        }
+    ],
+    "require": {}
+}
