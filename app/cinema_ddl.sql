@@ -1,40 +1,63 @@
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
+drop table if exists halls cascade;
 create table halls
 (
-    id          uuid DEFAULT uuid_generate_v4() NOT NULL PRIMARY KEY,
-    number      int                             NOT NULL
-        check ( number > 0 ),
-    seats_count int                             NOT NULL
-        check ( seats_count > 0 )
+    id            serial primary key,
+    name          varchar(30) unique not null,
+    rows_count    smallint           not null
+        check ( rows_count > 0),
+    seats_per_row smallint           not null
+        check ( seats_per_row > 0 )
+
 );
 
+drop table if exists hall_schema cascade;
+create table hall_schema
+(
+    id      serial primary key,
+    hall_id integer references halls (id),
+    row     smallint                        not null,
+    seat    smallint                        not null
+);
+alter table hall_schema
+    add constraint hall_schema_uniq_idx unique (hall_id, row, seat);
+
+drop table if exists movies cascade;
 create table movies
 (
-    id       uuid DEFAULT uuid_generate_v4() NOT NULL PRIMARY KEY,
-    name     varchar(100)                    NOT NULL,
-    duration interval HOUR TO SECOND         NOT NULL
+    id       serial primary key,
+    name     varchar(100)                    not null,
+    duration interval hour to second         not null
 );
 
+drop table if exists sessions cascade;
 create table sessions
 (
-    id       uuid DEFAULT uuid_generate_v4() NOT NULL PRIMARY KEY,
-    movie_id uuid REFERENCES movies (id),
-    hall_id  uuid REFERENCES halls (id),
-    begin_at timestamp                       NOT NULL
+    id       serial primary key,
+    movie_id integer,
+    hall_id  integer,
+    begin_at timestamp                       not null
 );
 
-create table orders
+drop table if exists tickets cascade;
+create table tickets
 (
-    id         uuid DEFAULT uuid_generate_v4() NOT NULL PRIMARY KEY,
-    session_id uuid REFERENCES sessions (id),
-    row        int                             NOT NULL check (row > 0),
-    seat       int                             NOT NULL check (seat > 0),
-    price      int                             NOT NULL check (price >= 0)
+    id             serial primary key,
+    session_id     integer,
+    hall_schema_id integer,
+    price          int                             not null,
+    created_at     timestamp                       not null
 );
 
+alter table tickets
+    add constraint ticket_session_fk foreign key (session_id) references sessions (id);
+alter table tickets
+    add constraint ticket_hall_schema_fk foreign key (hall_schema_id) references hall_schema (id);
+alter table tickets
+    add constraint ticket_check_price_idx check ( price >= 0 );
 
-drop table if exists orders;
-drop table if exists sessions;
-drop table if exists movies;
-drop table if exists halls;
+
+alter table sessions
+    add constraint session_movie_fk foreign key (movie_id) references movies (id);
+alter table sessions
+    add constraint session_hall_fk foreign key (hall_id) references halls (id);
