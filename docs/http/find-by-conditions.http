@@ -1,0 +1,16 @@
+### Create event
+POST {{host}}/event/find
+Content-Type: application/json
+
+{
+    "conditions": [
+        {
+            "key": "param1",
+            "value": "1"
+        },
+        {
+            "key": "param2",
+            "value": "2"
+        }
+    ]
+}

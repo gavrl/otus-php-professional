@@ -1,0 +1,55 @@
+### Create event
+POST {{host}}/event/
+Content-Type: application/json
+
+{
+    "priority": 1000,
+    "conditions": [
+        {
+            "key": "param1",
+            "value": "1"
+        }
+    ],
+    "title": "event1",
+    "data": "event1 data"
+}
+
+### Create event 2
+POST {{host}}/event/
+Content-Type: application/json
+
+{
+    "priority": 2000,
+    "conditions": [
+        {
+            "key": "param1",
+            "value": "2"
+        },
+        {
+            "key": "param2",
+            "value": "2"
+        }
+    ],
+    "title": "event2",
+    "data": "event2 data"
+}
+
+### Create event 3
+POST {{host}}/event/
+Content-Type: application/json
+
+{
+    "priority": 3000,
+    "conditions": [
+        {
+            "key": "param1",
+            "value": "1"
+        },
+        {
+            "key": "param2",
+            "value": "2"
+        }
+    ],
+    "title": "event3",
+    "data": "event3 data"
+}
