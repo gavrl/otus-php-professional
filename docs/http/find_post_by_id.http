@@ -1,0 +1,7 @@
+### find post by id
+GET http://localhost:8080/post/4
+Accept: application/json
+
+### find post by not existing id
+GET http://localhost:8080/post/9999
+Accept: application/json

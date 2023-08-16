@@ -1,0 +1,29 @@
+### create post
+POST http://localhost:8080/post/
+Content-Type: application/json
+
+{
+    "title": "post 1",
+    "content": "post content 1",
+    "createdBy": "post creator 1"
+}
+
+### create post 2
+POST http://localhost:8080/post/
+Content-Type: application/json
+
+{
+    "title": "post 2",
+    "content": "post content 2",
+    "createdBy": "post creator 2"
+}
+
+### create post 3
+POST http://localhost:8080/post/
+Content-Type: application/json
+
+{
+    "title": "post 3",
+    "content": "post content 3",
+    "createdBy": "post creator 3"
+}

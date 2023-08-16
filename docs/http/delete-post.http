@@ -1,0 +1,3 @@
+### delete post by id
+DELETE http://localhost:8080/post/1
+Accept: application/json
